@@ -3,7 +3,7 @@ source 'https://gems.ruby-china.org/'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use mysql as the database for Active Record
-gem 'pg', '0.20'
+gem 'pg', '0.21'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -18,29 +18,33 @@ gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder', '~> 2.5'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+# Use Redis adapter to run Action Cable in production
+gem 'redis', '~> 3.0'
+# Use ActiveModel has_secure_password
+gem 'bcrypt' #, '~> 3.1.7'
 
-# gem 'sqlite3'
-# gem 'dm-sqlite-adapter'
-
-# gem 'rest-client'
 gem 'httparty'
 gem 'http-exceptions'
-gem 'parallel'
 gem 'rack-cors', :require => 'rack/cors'
-gem 'youtube-dl.rb'
-gem 'tradsim'
-gem 'watir'
-gem 'watir-scroll'
-# gem 'metainspector'
-# gem 'capybara'
-# gem 'poltergeist'
-# gem 'mp4info'
-# gem 'flvedit'
-# gem 'whatlanguage'
-# gem 'websocket'
+gem 'bcrypt'
+gem 'state_machines-activerecord'
+gem 'whenever', :require => false
+gem 'rails-i18n'
+gem 'thin'
+gem 'kaminari'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'qiniu'
+gem 'qiniu-rs'
+gem 'carrierwave-qiniu'
+gem 'action-store'
+gem 'sidekiq'
+gem 'ransack'
+
+gem 'wechat'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -52,7 +56,6 @@ gem 'watir-scroll'
 # gem 'capistrano-rails', group: :development
 
 group :production do
-  gem 'headless'
   # gem 'watir-rails'
 end
 
@@ -82,12 +85,3 @@ group :development do
   # gem 'pry-rescue'
   # gem 'pry-stack_explorer'
 end
-
-gem 'bcrypt'
-gem 'state_machines-activerecord'
-gem 'whenever', :require => false
-gem 'rails-i18n'
-gem 'thin'
-
-gem 'kaminari'
-gem 'qiniu', '~> 6.8.1'
