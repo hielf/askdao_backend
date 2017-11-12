@@ -1,17 +1,12 @@
 Rails.application.routes.draw do
   # ActiveAdmin.routes(self)
-  namespace :api, defaults: {format: :json} do
-    post 'login' => 'sessions#create'
-    post 'logout' => 'sessions#destroy'
-    resources :spyder_videos do
-      collection do
-          get :states
-          get :columns
-          post :approved
-          post :disposed
-          post :ready_to_download
-          post :recovered
+  namespace :api do
+    namespace :v1 do
+      resources :messages do
+        collection do
+          post :get_message
         end
+      end
     end
   end
 
