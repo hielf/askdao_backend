@@ -56,3 +56,5 @@ log/capistrano.log
 log/test.log
 
 *.download
+
+config/wechat.yml
