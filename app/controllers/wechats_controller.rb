@@ -7,7 +7,7 @@ class WechatsController < ActionController::Base
 
     if user
       message = user.messages.create(content: content)
-      message.delay.received
+      message.delay(:queue => 'sending').received
       request.reply.text "您搜索的关键词: \"#{content}\"已收到，正在为您查询，稍后会为您推送结果。"
     end
   end
