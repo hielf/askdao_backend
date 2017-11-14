@@ -28,7 +28,6 @@ gem 'bcrypt' #, '~> 3.1.7'
 
 gem 'httparty'
 gem 'rack-cors', :require => 'rack/cors'
-gem 'bcrypt'
 gem 'state_machines-activerecord'
 gem 'whenever', :require => false
 gem 'rails-i18n'
@@ -40,7 +39,8 @@ gem 'qiniu'
 gem 'qiniu-rs'
 gem 'carrierwave-qiniu'
 gem 'action-store'
-gem 'sidekiq'
+# gem 'sidekiq'
+gem 'delayed_job_active_record'
 gem 'ransack'
 
 gem 'wechat'

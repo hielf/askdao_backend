@@ -3,27 +3,32 @@ class WechatsController < ActionController::Base
   wechat_responder
 
   on :text do |request, content|
-    # request.reply.text "echo: #{content}" # Just echo
-    request.reply.text "#{request}"
-  end
+    user = User.find_or_create_by(open_id: request[:FromUserName])
 
-  # When receive 'help', will trigger this responder
-  on :text, with: 'help' do |request|
-    request.reply.text 'help content'
-  end
-
-  # When receive '<n>news', will match and will got count as <n> as parameter
-  on :text, with: /^(\d+) news$/ do |request, count|
-    # Wechat article can only contain max 10 items, large than 10 will dropped.
-    news = (1..count.to_i).each_with_object([]) { |n, memo| memo << { title: 'News title', content: "No. #{n} news content" } }
-    request.reply.news(news) do |article, n, index| # article is return object
-      article.item title: "#{index} #{n[:title]}", description: n[:content], pic_url: 'http://www.baidu.com/img/bdlogo.gif', url: 'http://www.baidu.com/'
+    if user
+      message = user.messages.create(content: content)
+      # message.delay.received
+      request.reply.text "您搜索的关键词: #{content}，已收到，正在为您查询，稍后会为您推送结果。"
     end
   end
 
+  # When receive 'help', will trigger this responder
+  on :text, with: '帮助' do |request|
+    request.reply.text '医学问道是一个医学视频检索工具。'
+  end
+
+  # When receive '<n>news', will match and will got count as <n> as parameter
+  # on :text, with: /^(\d+) news$/ do |request, count|
+  #   # Wechat article can only contain max 10 items, large than 10 will dropped.
+  #   news = (1..count.to_i).each_with_object([]) { |n, memo| memo << { title: 'News title', content: "No. #{n} news content" } }
+  #   request.reply.news(news) do |article, n, index| # article is return object
+  #     article.item title: "#{index} #{n[:title]}", description: n[:content], pic_url: 'http://www.baidu.com/img/bdlogo.gif', url: 'http://www.baidu.com/'
+  #   end
+  # end
+
   on :event, with: 'subscribe' do |request|
     User.find_or_create_by(open_id: request[:FromUserName])
-    request.reply.text "#{request[:FromUserName]} subscribe now"
+    request.reply.text "欢迎使用医学问道，在对话框输入关键词，即可检索医疗文献和视频。"
   end
 
   # When unsubscribe user scan qrcode qrscene_xxxxxx to subscribe in public account
