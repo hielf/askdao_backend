@@ -2,11 +2,9 @@ Rails.application.routes.draw do
   resource :wechat, only: [:show, :create]
   # ActiveAdmin.routes(self)
   namespace :api do
-    namespace :v1 do
-      resources :messages do
-        collection do
-          post :get_message
-        end
+    resources :messages do
+      collection do
+        post :get_message
       end
     end
   end
