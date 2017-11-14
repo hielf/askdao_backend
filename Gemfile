@@ -27,7 +27,6 @@ gem 'redis', '~> 3.0'
 gem 'bcrypt' #, '~> 3.1.7'
 
 gem 'httparty'
-gem 'http-exceptions'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'bcrypt'
 gem 'state_machines-activerecord'
