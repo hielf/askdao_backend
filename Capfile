@@ -5,6 +5,7 @@ require "capistrano/scm/git"
 require "capistrano/deploy"
 require 'capistrano/rails'
 require "whenever/capistrano"
+require 'capistrano/delayed_job'
 
 # Include tasks from other gems included in your Gemfile
 #
