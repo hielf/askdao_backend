@@ -3,7 +3,8 @@ class WechatsController < ActionController::Base
   wechat_responder
 
   on :text do |request, content|
-    request.reply.text "echo: #{content}" # Just echo
+    # request.reply.text "echo: #{content}" # Just echo
+    request.reply.text "#{request}"
   end
 
   # When receive 'help', will trigger this responder
@@ -21,6 +22,7 @@ class WechatsController < ActionController::Base
   end
 
   on :event, with: 'subscribe' do |request|
+    User.find_or_create_by(open_id: request[:FromUserName])
     request.reply.text "#{request[:FromUserName]} subscribe now"
   end
 
