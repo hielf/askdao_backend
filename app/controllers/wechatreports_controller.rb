@@ -1,7 +1,7 @@
 class WechatReportsController < ApplicationController
   wechat_api
   layout 'wechat'
-  skip_before_filter :verify_authenticity_token, if: :json_request?
+  protect_from_forgery with: :null_session, if: Proc.new {|c| c.request.format.json? }
   # def index
   #   @lots = Lot.with_preloading.wip_lot
   # end
@@ -11,5 +11,5 @@ class WechatReportsController < ApplicationController
     template = YAML.load(File.read('app/views/templates/result.yml'))
     wechat.template_message_send Wechat::Message.to(openid).template(template['template'])
   end
-  
+
 end
