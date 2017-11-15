@@ -7,8 +7,8 @@ class Message < ActiveRecord::Base
     end
   end
 
-  def send_query
-    HTTParty.get 'http://www.test.com'
+  def send_query(open_id, key_word)
+    HTTParty.get "http://139.162.101.250/spyders/search?openid=#{open_id}&keyword=#{key_word}"
   end
 
 end

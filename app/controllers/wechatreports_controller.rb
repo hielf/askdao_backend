@@ -17,9 +17,9 @@ class WechatReportsController < ApplicationController
     template['template']['data']['first']['value'].gsub!("*first", "您好,已为您搜索到以下结果")
     template['template']['data']['keyword1']['value'].gsub!("*keyword1", "#{key_word}")
     template['template']['data']['keyword2']['value'].gsub!("*keyword2", "一共有#{count}条结果")
-    template['template']['data']['keyword3']['value'].gsub!("*keyword3", "")
-    template['template']['data']['keyword4']['value'].gsub!("*keyword4", "")
-    template['template']['data']['keyword5']['value'].gsub!("*keyword5", "")
+    template['template']['data']['keyword3']['value'].gsub!("*keyword3", "YOUTUBE")
+    template['template']['data']['keyword4']['value'].gsub!("*keyword4", "1")
+    template['template']['data']['keyword5']['value'].gsub!("*keyword5", "#{Date.today}")
 
     wechat.template_message_send Wechat::Message.to(openid).template(template['template'])
 
