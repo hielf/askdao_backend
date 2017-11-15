@@ -1,2 +1,12 @@
 abc
 <%= @res.to_json.html_safe %>
+
+<table>
+  <% @data.each do |d| %>
+    <tr>
+      <td><%= d["name"] %></td>
+      <td><%= d["author"] %></td>
+      <td><%= d["video_duration"] %></td>
+    </tr>
+  <% end %>
+</table>
