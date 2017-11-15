@@ -11,9 +11,12 @@ class WechatReportsController < ApplicationController
     openid = params[:open_id]
     key_word = params[:key_word]
     count = params[:count]
+    spyder_id = params[:spyder_id]
+
+    url = "http://wendao.easybird.cn/results/#{spyder_id}"
 
     template = YAML.load(File.read('app/views/templates/result.yml'))
-    template['template']['url'].gsub!("*url", "#{openid}")
+    template['template']['url'].gsub!("*url", "#{url}")
     template['template']['data']['first']['value'].gsub!("*first", "您好,已为您搜索到以下结果")
     template['template']['data']['keyword1']['value'].gsub!("*keyword1", "#{key_word}")
     template['template']['data']['keyword2']['value'].gsub!("*keyword2", "一共有#{count}条结果")
