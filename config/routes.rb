@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resource :wechat, only: [:show, :create]
-  resource :results
+  resource :results do
+    collection do
+      get :videos
+    end
+  end
   resource :wechat_reports do
     collection do
       post :search_result
