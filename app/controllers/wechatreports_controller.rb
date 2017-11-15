@@ -13,7 +13,7 @@ class WechatReportsController < ApplicationController
     count = params[:count]
     spyder_id = params[:spyder_id]
 
-    url = "http://wendao.easybird.cn/results/#{spyder_id}"
+    url = "http://wendao.easybird.cn/results?id=#{spyder_id}"
 
     template = YAML.load(File.read('app/views/templates/result.yml'))
     template['template']['url'].gsub!("*url", "#{url}")
