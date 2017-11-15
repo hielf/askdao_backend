@@ -7,4 +7,8 @@ class Message < ActiveRecord::Base
     end
   end
 
+  def send_query
+    HTTParty.get 'http://www.test.com'
+  end
+
 end

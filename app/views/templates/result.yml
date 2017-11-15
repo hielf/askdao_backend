@@ -1,0 +1,26 @@
+template:
+  template_id: "opMZI2K5hLgJVC7cObqqBslyQrd5wYD1GhDFVXELkbU"
+  url: "http://weixin.qq.com/download"
+  topcolor: "#FF0000"
+  data:
+    first:
+      value: "您好，您已报名成功"
+      color: "#0A0A0A"
+    keyword1:
+      value: "XX活动"
+      color: "#CCCCCC"
+    keyword2:
+      value: "2014年9月16日"
+      color: "#CCCCCC"
+    keyword3:
+      value: "上海徐家汇xxx城"
+      color: "#CCCCCC"
+    keyword4:
+      value: "上海徐家汇xxx城"
+      color: "#CCCCCC"
+    keyword5:
+      value: "上海徐家汇xxx城"
+      color: "#CCCCCC"
+    remark:
+      value: "欢迎再次使用。"
+      color: "#173177"
