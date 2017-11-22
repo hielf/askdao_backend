@@ -9,97 +9,22 @@
     </head>
     <body>
         <!-- 使用 -->
-        <div class="weui-cells__title">带说明的列表项</div>
-          <div class="weui-cells">
-              <div class="weui-cell">
-                  <div class="weui-cell__bd">
-                      <p>标题文字</p>
-                  </div>
-                  <div class="weui-cell__ft">说明文字</div>
-              </div>
-          </div>
-          <div class="weui-cells__title">带图标、说明的列表项</div>
-          <div class="weui-cells">
-              <div class="weui-cell">
-                  <div class="weui-cell__hd"><img src="..." alt="" style="width:20px;margin-right:5px;display:block"></div>
-                  <div class="weui-cell__bd">
-                      <p>标题文字</p>
-                  </div>
-                  <div class="weui-cell__ft">说明文字</div>
-              </div>
-              <div class="weui-cell">
-                  <div class="weui-cell__hd"><img src="..." alt="" style="width:20px;margin-right:5px;display:block"></div>
-                  <div class="weui-cell__bd">
-                      <p>标题文字</p>
-                  </div>
-                  <div class="weui-cell__ft">说明文字</div>
-              </div>
-          </div>
+        <div class="weui-cells__title">视频搜索结果</div>
+        <div class="weui-cells">
+          <% @data.each do |d| %>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><img src="..." alt="" style="width:20px;margin-right:5px;display:block"></div>
+                <div class="weui-cell__bd">
+                    <p><%= d["name"] %></p>
+                </div>
+                <div class="weui-cell__bd">
+                    <p><%= d["video_duration"] %></p>
+                </div>
+                <div class="weui-cell__ft"><%= d["author"] %></div>
+            </div>
+          <% end %>
 
-          <div class="weui-cells__title">带跳转的列表项</div>
-          <div class="weui-cells">
-              <a class="weui-cell weui-cell_access" href="javascript:;">
-                  <div class="weui-cell__bd">
-                      <p>cell standard</p>
-                  </div>
-                  <div class="weui-cell__ft">
-                  </div>
-              </a>
-              <a class="weui-cell weui-cell_access" href="javascript:;">
-                  <div class="weui-cell__bd">
-                      <p>cell standard</p>
-                  </div>
-                  <div class="weui-cell__ft">
-                  </div>
-              </a>
-          </div>
-
-          <div class="weui-cells__title">带说明、跳转的列表项</div>
-          <div class="weui-cells">
-              <a class="weui-cell weui-cell_access" href="javascript:;">
-                  <div class="weui-cell__bd">
-                      <p>cell standard</p>
-                  </div>
-                  <div class="weui-cell__ft">说明文字</div>
-              </a>
-              <a class="weui-cell weui-cell_access" href="javascript:;">
-                  <div class="weui-cell__bd">
-                      <p>cell standard</p>
-                  </div>
-                  <div class="weui-cell__ft">说明文字</div>
-              </a>
-
-          </div>
-
-          <div class="weui-cells__title">带图标、说明、跳转的列表项</div>
-          <div class="weui-cells">
-
-              <a class="weui-cell weui-cell_access" href="javascript:;">
-                  <div class="weui-cell__hd"><img src="..." alt="" style="width:20px;margin-right:5px;display:block"></div>
-                  <div class="weui-cell__bd">
-                      <p>cell standard</p>
-                  </div>
-                  <div class="weui-cell__ft">说明文字</div>
-              </a>
-              <a class="weui-cell weui-cell_access" href="javascript:;">
-                  <div class="weui-cell__hd"><img src="..." alt="" style="width:20px;margin-right:5px;display:block"></div>
-                  <div class="weui-cell__bd">
-                      <p>cell standard</p>
-                  </div>
-                  <div class="weui-cell__ft">说明文字</div>
-              </a>
-          </div>
+        </div>
         <a href="javascript:;" class="weui-btn weui-btn_primary">绿色按钮</a>
     </body>
 </html>
-
-<h3>搜索结果：</h3>
-<table>
-  <% @data.each do |d| %>
-    <tr>
-      <td><%= d["name"] %></td>
-      <td><%= d["author"] %></td>
-      <td><%= d["video_duration"] %></td>
-    </tr>
-  <% end %>
-</table>
