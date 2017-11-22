@@ -22,7 +22,7 @@ class WechatsController < ActionController::Base
 
   # When receive 'help', will trigger this responder
   on :text, with: '帮助' do |request|
-    request.reply.text '医学问道是一个医学视频检索工具。'
+    request.reply.text '君悦闻道是一个医学视频检索工具。'
   end
 
   # When receive '<n>news', will match and will got count as <n> as parameter
@@ -36,7 +36,7 @@ class WechatsController < ActionController::Base
 
   on :event, with: 'subscribe' do |request|
     User.find_or_create_by(open_id: request[:FromUserName])
-    request.reply.text "欢迎使用医学问道，在对话框输入关键词，即可检索医疗文献和视频。"
+    request.reply.text "欢迎使用君悦闻道，在对话框输入关键词，即可检索医疗文献和视频。"
   end
 
   # When unsubscribe user scan qrcode qrscene_xxxxxx to subscribe in public account
