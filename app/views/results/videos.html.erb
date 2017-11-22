@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-        <title>WeUI</title>
+        <title>视频搜索结果</title>
         <!-- 引入 WeUI -->
         <link rel="stylesheet" href="path/to/weui/dist/style/weui.min.css"/>
     </head>
@@ -15,12 +15,10 @@
             <div class="weui-cell">
                 <div class="weui-cell__hd"><img src="..." alt="" style="width:20px;margin-right:5px;display:block"></div>
                 <div class="weui-cell__bd">
-                    <p><%= d["name"] %></p>
+                    <p><%= d["name"] %></p></br>
+                    <p><%= d["author"] %></p>
                 </div>
-                <div class="weui-cell__bd">
-                    <p><%= d["video_duration"] %></p>
-                </div>
-                <div class="weui-cell__ft"><%= d["author"] %></div>
+                <div class="weui-cell__ft"><%= d["video_duration"] %></div>
             </div>
           <% end %>
 
