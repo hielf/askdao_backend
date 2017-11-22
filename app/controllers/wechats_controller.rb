@@ -1,6 +1,14 @@
 class WechatsController < ActionController::Base
   # For details on the DSL available within this file, see https://github.com/Eric-Guo/wechat#wechat_responder---rails-responder-controller-dsl
   wechat_responder
+  layout 'wechat'
+
+  def message_box
+  end
+
+  def direct_message_box
+    render 'weui/message_box', locals: { title: 'Weui', description: 'directly render in controller' }
+  end
 
   on :text do |request, content|
     user = User.find_or_create_by(open_id: request[:FromUserName])

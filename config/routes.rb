@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resource :wechat, only: [:show, :create]
+  resource :wechat, only: [:show, :create]  do
+    collection do
+      get :message_box
+      get :direct_message_box
+    end
+  end
   resource :results do
     get :videos, on: :collection
   end
