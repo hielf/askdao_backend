@@ -1,1 +1,16 @@
 <%= @res %>
+<div class="weui-cells__title">视频搜索结果</div>
+<div class="weui-cells">
+  <% @data.each do |d| %>
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><img src="..." alt="" style="width:20px;margin-right:5px;display:block"></div>
+        <div class="weui-cell__bd">
+            <p><%= d["name"] %></p></br>
+            <p style="color:#999999;font-size: 15px;">作者:<%= d["author"] %></p>
+        </div>
+        <div class="weui-cell__ft"><%= d["video_duration"] %></div>
+    </div>
+  <% end %>
+
+</div>
+<a href="javascript:;" class="weui-btn weui-btn_primary">绿色按钮</a>
