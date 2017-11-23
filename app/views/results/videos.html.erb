@@ -11,24 +11,18 @@
     </head>
     <body>
       <div class="weui-cells weui-cells_checkbox">
-      <label class="weui-cell weui-check__label" for="s11">
+      <% @data.each do |d| %>
+      <label class="weui-cell weui-check__label" for="<%= d["author"] %>">
         <div class="weui-cell__hd">
-          <input type="checkbox" class="weui-check" name="checkbox1" id="s11" checked="checked">
+          <input type="checkbox" class="weui-check" name="checkbox1" id="<%= d["author"] %>">
           <i class="weui-icon-checked"></i>
         </div>
         <div class="weui-cell__bd">
-          <p>standard is dealt for u.</p>
+          <p><%= d["name"] %></p></br>
+          <p style="color:#999999;font-size: 15px;">作者:<%= d["author"] %></p>
         </div>
       </label>
-      <label class="weui-cell weui-check__label" for="s12">
-        <div class="weui-cell__hd">
-          <input type="checkbox" name="checkbox1" class="weui-check" id="s12">
-          <i class="weui-icon-checked"></i>
-        </div>
-        <div class="weui-cell__bd">
-          <p>standard is dealicient for u.</p>
-        </div>
-      </label>
+      <% end %>
       <a href="javascript:void(0);" class="weui-cell weui-cell_link">
         <div class="weui-cell__bd">添加更多</div>
       </a>
