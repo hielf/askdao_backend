@@ -10,25 +10,29 @@
         <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.1.2/css/jquery-weui.min.css">
     </head>
     <body>
-        <!-- 使用 -->
-        <div class="weui-cells__title">开关</div>
-        <div class="weui-cells weui-cells_form">
-          <div class="weui-cell weui-cell_switch">
-            <div class="weui-cell__bd">标题文字</div>
-            <div class="weui-cell__ft">
-              <input class="weui-switch" type="checkbox">
-            </div>
-          </div>
-          <div class="weui-cell weui-cell_switch">
-            <div class="weui-cell__bd">兼容IE Edge的版本</div>
-            <div class="weui-cell__ft">
-              <label for="switchCP" class="weui-switch-cp">
-                <input id="switchCP" class="weui-switch-cp__input" type="checkbox" checked="checked">
-                <div class="weui-switch-cp__box"></div>
-              </label>
-            </div>
-          </div>
+      <div class="weui-cells weui-cells_checkbox">
+      <label class="weui-cell weui-check__label" for="s11">
+        <div class="weui-cell__hd">
+          <input type="checkbox" class="weui-check" name="checkbox1" id="s11" checked="checked">
+          <i class="weui-icon-checked"></i>
         </div>
+        <div class="weui-cell__bd">
+          <p>standard is dealt for u.</p>
+        </div>
+      </label>
+      <label class="weui-cell weui-check__label" for="s12">
+        <div class="weui-cell__hd">
+          <input type="checkbox" name="checkbox1" class="weui-check" id="s12">
+          <i class="weui-icon-checked"></i>
+        </div>
+        <div class="weui-cell__bd">
+          <p>standard is dealicient for u.</p>
+        </div>
+      </label>
+      <a href="javascript:void(0);" class="weui-cell weui-cell_link">
+        <div class="weui-cell__bd">添加更多</div>
+      </a>
+      </div>
 
         <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
         <script src="https://cdn.bootcss.com/jquery-weui/1.1.2/js/jquery-weui.min.js"></script>
