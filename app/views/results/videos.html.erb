@@ -14,7 +14,7 @@
       <% @data.each do |d| %>
       <label class="weui-cell weui-check__label" for="<%= d["id"] %>">
         <div class="weui-cell__hd">
-          <input type="checkbox" class="weui-check" name="checkbox1" id="<%= d["id"] %>">
+          <input type="checkbox" class="weui-check" name="checkbox1" id="<%= d["id"] %>" value="<%= d["id"] %>">
           <i class="weui-icon-checked"></i>
         </div>
         <div class="weui-cell__bd">
