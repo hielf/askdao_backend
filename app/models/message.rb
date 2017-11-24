@@ -12,4 +12,13 @@ class Message < ActiveRecord::Base
     HTTParty.get URI.encode(href)
   end
 
+  def video_download(ids)
+    url = "http://139.162.101.250/api/spyders/download_videos"
+
+    res = HTTParty.post(url,
+            :body => { :ids => ids
+                     }.to_json,
+            :headers => { 'Content-Type' => 'application/json' } )
+  end
+  
 end

@@ -6,7 +6,10 @@ Rails.application.routes.draw do
     end
   end
   resource :results do
-    get :videos, on: :collection
+    collection do
+      get :videos
+      post :submit_download 
+    end
   end
   resource :wechat_reports do
     collection do
