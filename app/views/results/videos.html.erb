@@ -41,7 +41,7 @@
                allVals.push(parseInt($(this).val()));
              });
              if (jQuery.isEmptyObject(allVals)) {
-              $.toast("请选择需要下载的内容", 40000);
+              $.toast("请选择需要下载的内容", 4000);
               return;
              }
             $.ajax
@@ -51,7 +51,7 @@
                 type: 'post',
                 success: function(result)
                 {
-                  $.toast("已开始下载\n请等待系统消息", 40000);
+                  $.toast("已开始下载\n请等待系统消息", 4000);
                 }
             });
         });
