@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171114162524) do
+ActiveRecord::Schema.define(version: 20171130164341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,22 @@ ActiveRecord::Schema.define(version: 20171114162524) do
   end
 
   add_index "users", ["open_id"], name: "index_users_on_open_id", using: :btree
+
+  create_table "videos", force: :cascade do |t|
+    t.string   "name"
+    t.string   "video_src"
+    t.string   "video_cover"
+    t.string   "status"
+    t.integer  "user_id"
+    t.integer  "pv"
+    t.integer  "pv_offset"
+    t.integer  "likes_count"
+    t.string   "duration"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "videos", ["user_id"], name: "index_videos_on_user_id", using: :btree
 
   create_table "wechat_sessions", force: :cascade do |t|
     t.string   "openid",     null: false
