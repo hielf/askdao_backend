@@ -13,12 +13,9 @@
       <div class="weui-cells weui-cells_checkbox">
       <% @data.each do |d| %>
       <label class="weui-cell weui-check__label" for="<%= d["id"] %>">
-        <div class="weui-cell__hd">
-          <input type="checkbox" class="weui-check" name="checkbox1" id="<%= d["id"] %>" value="<%= d["id"] %>">
-          <i class="weui-icon-checked"></i>
-        </div>
         <div class="weui-cell__bd">
-          <p><%= d["name"] %></p></br>
+          <a href="<%= d["url"] %>"><p><%= d["title"] %></p></a></br>
+          <p><%= d["summary"] %></p></br>
           <p style="color:#999999;font-size: 15px;">作者:<%= d["author"] %></p>
         </div>
       </label>

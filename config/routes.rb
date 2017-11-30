@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resource :results do
     collection do
       get :videos
+      get :articles
       post :submit_download
     end
   end
