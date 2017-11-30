@@ -8,12 +8,13 @@ Rails.application.routes.draw do
   resource :results do
     collection do
       get :videos
-      post :submit_download 
+      post :submit_download
     end
   end
   resource :wechat_reports do
     collection do
       post :search_result
+      post :scholar_result
     end
   end
   # ActiveAdmin.routes(self)
