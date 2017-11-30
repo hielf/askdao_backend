@@ -8,7 +8,7 @@ class VideosController < ApplicationController
     requires! :status, type: Integer, values: %w(0 1)
     requires! :secret, type: String
 
-    return render_json(1, '上传失败') if (params[:secret] != Digest::MD5.hexdigest (params[:name] + 1.to_s))
+    return render_json(1, '上传失败') if (params[:secret] != (Digest::MD5.hexdigest (params[:name] + 1.to_s)))
 
     video = Video.create(user_id: current_user.id,
                          name: params[:name],
