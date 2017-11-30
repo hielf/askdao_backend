@@ -11,6 +11,16 @@ class ResultsController < ApplicationController
     end
   end
 
+  def scholars
+    spyder_id = params[:spyder_id]
+    res = HTTParty.get "http://139.162.101.250/api/spyder_articles/articles?spyder_id=#{spyder_id}"
+    @data = JSON.parse(res.body)["data"]["articles"]
+
+    respond_to do |format|
+      format.html
+    end
+  end
+
   def show
     respond_to do |format|
       format.html
