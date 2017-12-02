@@ -11,4 +11,9 @@ class ApplicationController < ActionController::Base
   def error_404!
     render_json(404, 'Page not found')
   end
+
+  def requires!(name, opts = {})
+    opts[:require] = true
+    optional!(name, opts)
+  end
 end
