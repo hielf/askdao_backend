@@ -9,6 +9,7 @@ class VideosController < ApplicationController
     # requires! :status, type: Integer, values: %w(0 1)
     # requires! :secret, type: String
     # requires! :user, type: String
+    Rails.logger.warn "params: #{params}"
 
     return render_json(1, '上传失败') if (params[:secret] != (Digest::MD5.hexdigest (params[:name] + 1.to_s)))
 
