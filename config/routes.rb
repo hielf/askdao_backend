@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     collection do
       get :videos
       get :articles
+      get :my_videos
       post :submit_download
     end
   end
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
     collection do
       post :search_result
       post :scholar_result
+      post :video_download_result
     end
   end
   # ActiveAdmin.routes(self)

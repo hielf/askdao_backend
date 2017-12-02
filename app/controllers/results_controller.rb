@@ -23,6 +23,15 @@ class ResultsController < ApplicationController
     end
   end
 
+  def my_videos
+    user = User.find_by(open_id: params[:user])
+    @videos = user.videos
+    
+    respond_to do |format|
+      format.html
+    end
+  end
+
   def show
     respond_to do |format|
       format.html

@@ -52,4 +52,25 @@ class WechatReportsController < ApplicationController
     render_json(0, 'SUCCESS')
   end
 
+  def video_download_result
+    # openid = "og7qVxKXBQqtPAePsFSQGXqHWETk"
+    openid = params[:open_id]
+    key_word = params[:key_word]
+    count = params[:count]
+    spyder_id = params[:spyder_id]
+
+    url = "http://wendao.easybird.cn/results/my_videos?user=#{openid}"
+
+    template = YAML.load(File.read('app/views/templates/video_download_result.yml'))
+    template['template']['url'].gsub!("*url", "#{url}")
+    template['template']['data']['first']['value'].gsub!("*first", "您好,您收藏的#{count}条视频已下载完毕")
+    template['template']['data']['keyword1']['value'].gsub!("*keyword1", "#{key_word}")
+    template['template']['data']['keyword2']['value'].gsub!("*keyword2", "#{Date.today}")
+    template['template']['data']['keyword3']['value'].gsub!("*keyword3", "YOUTUBE")
+
+    wechat.template_message_send Wechat::Message.to(openid).template(template['template'])
+
+    render_json(0, 'SUCCESS')
+  end
+
 end

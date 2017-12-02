@@ -5,6 +5,7 @@ class VideosController < ApplicationController
     requires! :name, type: String
     requires! :video_src, type: String
     requires! :video_cover, type: String
+    requires! :author, type: String
     requires! :status, type: Integer, values: %w(0 1)
     requires! :secret, type: String
     requires! :user, type: String
@@ -17,6 +18,7 @@ class VideosController < ApplicationController
                          name: params[:name],
                          video_src: params[:video_src],
                          video_cover: params[:video_cover],
+                         author: params[:author],
                          status: params[:status])
     if video.save
       render_json(0, '上传成功')
