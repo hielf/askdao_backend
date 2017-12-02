@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.1.2/css/jquery-weui.min.css">
     </head>
     <body>
+      <div class="weui-cells__title">关键词: <%= @keyword %></div>
       <div class="weui-cells weui-cells_checkbox">
       <% @data.each do |d| %>
       <label class="weui-cell weui-check__label" for="<%= d["id"] %>">

@@ -11,6 +11,8 @@ class VideosController < ApplicationController
 
     return render_json(1, '上传失败') if (params[:secret] != (Digest::MD5.hexdigest (params[:name] + 1.to_s)))
 
+    return render_json(1, '文件已存在') if Video.find_by(user_id: User.find_by(open_id: params[:user]).id, video_src: params[:video_src])
+
     video = Video.create(user_id: User.find_by(open_id: params[:user]).id,
                          name: params[:name],
                          video_src: params[:video_src],
