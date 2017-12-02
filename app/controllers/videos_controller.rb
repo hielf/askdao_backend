@@ -2,13 +2,13 @@ class VideosController < ApplicationController
   protect_from_forgery with: :null_session
 
   def create
-    requires! :name, type: String
-    requires! :video_src, type: String
-    requires! :video_cover, type: String
-    requires! :author, type: String
-    requires! :status, type: Integer, values: %w(0 1)
-    requires! :secret, type: String
-    requires! :user, type: String
+    # requires! :name, type: String
+    # requires! :video_src, type: String
+    # requires! :video_cover, type: String
+    # requires! :author, type: String
+    # requires! :status, type: Integer, values: %w(0 1)
+    # requires! :secret, type: String
+    # requires! :user, type: String
 
     return render_json(1, '上传失败') if (params[:secret] != (Digest::MD5.hexdigest (params[:name] + 1.to_s)))
 
