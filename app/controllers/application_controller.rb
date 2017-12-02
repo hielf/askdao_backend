@@ -16,4 +16,21 @@ class ApplicationController < ActionController::Base
     opts[:require] = true
     optional!(name, opts)
   end
+
+  def optional!(name, opts = {})
+    if params[name].blank? && opts[:require] == true
+      raise ActionController::ParameterMissing.new(name)
+    end
+
+    if opts[:values] && params[name].present?
+      values = opts[:values].to_a
+      if !values.include?(params[name]) && !values.include?(params[name].to_i)
+        raise ParameterValueNotAllowed.new(name, opts[:values])
+      end
+    end
+
+    if params[name].blank? && opts[:default].present?
+      params[name] = opts[:default]
+    end
+  end
 end
