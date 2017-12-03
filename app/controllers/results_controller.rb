@@ -25,8 +25,8 @@ class ResultsController < ApplicationController
 
   def my_videos
     user = User.find_by(open_id: params[:user])
-    @videos = user.videos
-    
+    @videos = user.videos.order(created_at: :desc)
+
     respond_to do |format|
       format.html
     end
