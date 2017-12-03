@@ -16,12 +16,10 @@
         <div class="weui-cell weui-cell_swiped" id="cell-<%=v.id%>">
         <div class="weui-cell__bd" style="transform: translate3d(0px, 0px, 0px);">
           <div class="weui-cell">
-            <a href="<%= v.video_src %>">
-              <div class="weui-cell__hd"><img src="<%= v.video_cover %>" style="width:144px;margin-right:5px;display:block"></div>
-              <div class="weui-cell__bd">
-                <p style="color:#818181;font-size: 15px;"><%= v.name %></p>
-              </div>
-            </a>
+            <div class="weui-cell__hd"><a href="<%= v.video_src %>"><img src="<%= v.video_cover %>" style="width:144px;margin-right:5px;display:block"></a></div>
+            <div class="weui-cell__bd">
+              <p style="color:#818181;font-size: 15px;"><%= v.name %></p>
+            </div>
           </div>
         </div>
         <div class="weui-cell__ft">
