@@ -13,10 +13,10 @@
         <div class="weui-cells__title">视频列表</div>
         <div class="weui-cells">
         <% @videos.each do |v| %>
-        <a href="<%= v.video_src %>" class="weui-cell weui-cell_swiped" id="cell-<%=v.id%>">
+        <div class="weui-cell weui-cell_swiped" id="cell-<%=v.id%>">
         <div class="weui-cell__bd" style="transform: translate3d(0px, 0px, 0px);">
           <div class="weui-cell">
-            <div class="weui-cell__hd"><img src="<%= v.video_cover %>" style="width:144px;margin-right:5px;display:block"></div>
+            <div class="weui-cell__hd"><img src="<%= v.video_cover %>" alt="<%= v.video_src %>" style="width:144px;margin-right:5px;display:block"></div>
             <div class="weui-cell__bd">
               <p style="color:#818181;font-size: 15px;"><%= v.name %></p>
             </div>
@@ -25,7 +25,7 @@
         <div class="weui-cell__ft">
           <a class="weui-swiped-btn weui-swiped-btn_warn delete-swipeout" href="javascript:void(0);" id="<%=v.id%>">删除</a>
            <!-- link_to "删除", videos_path(v.id), :method => :delete, :class => "weui-swiped-btn weui-swiped-btn_warn delete-swipeout", :data => { :confirm => '确认删除该视频?'  -->
-        </a>
+        </div>
         </div>
         <% end %>
         </div>
