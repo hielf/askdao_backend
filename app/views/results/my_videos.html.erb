@@ -37,7 +37,7 @@
           $('.weui-swiped-btn.weui-swiped-btn_warn.delete-swipeout').click(function(event){
             id = this.id
             $.ajax({
-                    type: "POST",
+                    type: "delete",
                     url: "/videos/" + id,
                     dataType: "json",
                     data: {"_method":"delete"},
