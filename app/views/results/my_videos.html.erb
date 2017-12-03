@@ -13,10 +13,12 @@
         <div class="weui-cells__title">视频列表</div>
         <div class="weui-cells weui-cell_swiped">
         <% @videos.each do |v| %>
-        <a class="weui-cell" href="<%= v.video_src %>">
-          <div class="weui-cell__hd"><img src="<%= v.video_cover %>" width="144"></div>
-          <div class="weui-cell__bd">
-            <p style="color:#000000;"><%= v.name %></p>
+        <a class="weui-cell__bd" href="<%= v.video_src %>" style="transform: translateX(-136px)">
+          <div class="weui-cell">
+            <div class="weui-cell__hd"><img src="<%= v.video_cover %>" width="144"></div>
+            <div class="weui-cell__bd">
+              <p style="color:#818181;font-size: 15px;"><%= v.name %></p>
+            </div>
           </div>
         </a>
         <% end %>
