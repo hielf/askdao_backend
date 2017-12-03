@@ -23,7 +23,8 @@
           </div>
         </div>
         <div class="weui-cell__ft">
-          <a class="weui-swiped-btn weui-swiped-btn_warn delete-swipeout" href="javascript:">删除</a>
+          <!-- <a class="weui-swiped-btn weui-swiped-btn_warn delete-swipeout" href="javascript:">删除</a> -->
+          <%= link_to "删除", videos_path(v.id), :method => :delete, :class => "weui-swiped-btn weui-swiped-btn_warn delete-swipeout", :data => { :confirm => '确认删除该视频?' } %>
         </div>
         </div>
         <% end %>
