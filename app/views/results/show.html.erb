@@ -1,16 +1,34 @@
-<%= @res %>
-<div class="weui-cells__title">视频搜索结果</div>
-<div class="weui-cells">
-  <% @data.each do |d| %>
-    <div class="weui-cell">
-        <div class="weui-cell__hd"><img src="..." alt="" style="width:20px;margin-right:5px;display:block"></div>
-        <div class="weui-cell__bd">
-            <p><%= d["name"] %></p></br>
-            <p style="color:#999999;font-size: 15px;">作者:<%= d["author"] %></p>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+        <title>视频搜索结果</title>
+        <!-- 引入 WeUI -->
+        <!-- <link rel="stylesheet" href="path/to/weui/dist/style/weui.min.css"/> -->
+        <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.css">
+        <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.1.2/css/jquery-weui.css">
+        <!-- <link rel="stylesheet" href="http://jqweui.com/dist/demos/css/demos.css"> -->
+    </head>
+    <body>
+      <div id="body">
+      <header style="padding: 35px 0;">
+        <h1 style="text-align: center;font-size: 34px;color: #3cc51f;font-weight: 400;margin: 0 15%;">图标</h1>
+      </header>
+      <div style="padding: 15px;">
+        <div style="margin-bottom: 25px;display: -webkit-box;display: -webkit-flex;display: flex;-webkit-box-align: center;-webkit-align-items: center;align-items: center">
+          <i class="weui-icon-success weui-icon_msg" style="margin-right: 18px"></i>
+          <div style="-webkit-flex-shrink: 100;flex-shrink: 100">
+            <h3 style="font-weight: 400">成功</h3>
+            <p style="margin-top: 6px;font-size: 12px;color: #888">用于表示操作顺利达成</p>
+          </div>
         </div>
-        <div class="weui-cell__ft"><%= d["video_duration"] %></div>
-    </div>
-  <% end %>
-
-</div>
-<a href="javascript:;" class="weui-btn weui-btn_primary">绿色按钮</a>
+      </div>
+      <div class="weui-footer">
+        <p class="weui-footer__text">Copyright © 2011-2018 君悦闻道</p>
+      </div>
+      </div>
+      <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+      <script src="https://cdn.bootcss.com/jquery-weui/1.1.2/js/jquery-weui.min.js"></script>
+    </body>
+</html>
