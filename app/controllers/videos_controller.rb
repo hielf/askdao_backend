@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-  skip_before_filter :verify_authenticity_token
+  # skip_before_filter :verify_authenticity_token
   protect_from_forgery with: :null_session, if: Proc.new {|c| c.request.format.json? }
 
   def create
@@ -28,8 +28,8 @@ class VideosController < ApplicationController
     end
   end
 
-  def delete
-    video = Video.find_by(id: params[:id])
+  def remove
+    video = Video.find_by(id: params[:video_id])
 
     if video.destroy
       render_json(0, '删除成功')

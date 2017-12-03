@@ -37,10 +37,10 @@
           $('.weui-swiped-btn.weui-swiped-btn_warn.delete-swipeout').click(function(event){
             id = this.id
             $.ajax({
-                    type: "delete",
-                    url: "/videos/" + id,
+                    type: "POST",
+                    url: "/videos/remove",
                     // dataType: "json",
-                    data: {},
+                    data: JSON.stringify( { video_id: id } ),
                     contentType: "application/json",
                     complete: function(){
                       $.toast("已删除", 4000);
