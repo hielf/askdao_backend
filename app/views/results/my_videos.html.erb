@@ -13,7 +13,7 @@
         <div class="weui-cells__title">视频列表</div>
         <div class="weui-cells">
         <% @videos.each do |v| %>
-        <div class="weui-cell weui-cell_swiped" id="swipe<%=v.id%>">
+        <div class="weui-cell weui-cell_swiped" id="<%=v.id%>">
         <div class="weui-cell__bd" style="transform: translate3d(0px, 0px, 0px);">
           <div class="weui-cell">
             <div class="weui-cell__hd"><img src="<%= v.video_cover %>" alt="<%= v.video_src %>" style="width:144px;margin-right:5px;display:block"></div>
@@ -23,14 +23,40 @@
           </div>
         </div>
         <div class="weui-cell__ft">
-          <%= link_to "删除.", videos_path(v.id), :method => :delete, :class => "weui-swiped-btn weui-swiped-btn_warn delete-swipeout", :data => { :confirm => '确认删除该视频?' } %>
+          <a class="weui-swiped-btn weui-swiped-btn_warn delete-swipeout" href="javascript:void(0);" id="delete">删除</a>
+           <!-- link_to "删除", videos_path(v.id), :method => :delete, :class => "weui-swiped-btn weui-swiped-btn_warn delete-swipeout", :data => { :confirm => '确认删除该视频?'  -->
         </div>
         </div>
         <% end %>
         </div>
 
-      <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
-      <script src="https://cdn.bootcss.com/jquery-weui/1.1.2/js/jquery-weui.min.js"></script>
+        <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+        <script src="https://cdn.bootcss.com/jquery-weui/1.1.2/js/jquery-weui.min.js"></script>
+        <script>
+        $(document).ready(function() {
+          $('#delete').click(function(){
+          var allVals = [];
+            $('input:checkbox:checked').each(function() {
+                 allVals.push(parseInt($(this).val()));
+               });
+               if (jQuery.isEmptyObject(allVals)) {
+                $.toast("请选择需要下载的内容", 4000);
+                return;
+               }
+              $.ajax
+              ({
+                  url: 'http://wendao.easybird.cn/results/submit_download',
+                  data: {"ids": allVals},
+                  type: 'post',
+                  success: function(result)
+                  {
+                    $.toast("已开始下载\n请等待系统消息", 4000);
+                  }
+              });
+          });
+        })
+
+      </script>
 
     </body>
 </html>
