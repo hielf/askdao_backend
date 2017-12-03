@@ -27,8 +27,8 @@ class VideosController < ApplicationController
     end
   end
 
-  def remove
-    video = Video.find_by(id: params[:video_id])
+  def delete
+    video = Video.find_by(id: params[:id])
 
     if video.destroy
       render_json(0, '删除成功')
