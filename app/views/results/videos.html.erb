@@ -36,6 +36,16 @@
         </div>
       </div>
 
+      <div class="demos-content-padded">
+        <div class="icon-box">
+          <i class="weui-icon-success weui-icon_msg"></i>
+          <div class="icon-box__ctn">
+            <h3 class="icon-box__title">成功</h3>
+            <p class="icon-box__desc">用于表示操作顺利达成</p>
+          </div>
+        </div>
+      </div>
+
       <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
       <script src="https://cdn.bootcss.com/jquery-weui/1.1.2/js/jquery-weui.min.js"></script>
       <script>
@@ -59,10 +69,19 @@
                 {
                   // $.toast("操作成功", 4000);
                   $.toptip('操作成功', 2000, 'success');
-                  $("#body").html('<header class="demos-header">' +
-                                  '<h1 class="demos-title">图标</h1>' +
-                                  '</header>' +
-                                  '</header><i class="weui-icon-success weui-icon_msg"></i>');
+                  setTimeout(
+                    function()
+                    {
+                      $("#body").html('<div class="demos-content-padded">' +
+                        '<div class="icon-box">' +
+                          '<i class="weui-icon-success weui-icon_msg"></i>' +
+                          '<div class="icon-box__ctn">' +
+                            '<h3 class="icon-box__title">成功</h3>' +
+                            '<p class="icon-box__desc">用于表示操作顺利达成</p>' +
+                          '</div>' +
+                        '</div>' +
+                      '</div>');
+                    }, 2000);
                 }
             });
         });
