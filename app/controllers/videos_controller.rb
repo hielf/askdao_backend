@@ -1,7 +1,6 @@
 class VideosController < ApplicationController
   skip_before_filter :verify_authenticity_token
-  protect_from_forgery prepend: true, with: :exception
-  # protect_from_forgery with: :null_session, if: Proc.new {|c| c.request.format.json? }
+  protect_from_forgery with: :null_session, if: Proc.new {|c| c.request.format.json? }
 
   def create
     requires! :name, type: String

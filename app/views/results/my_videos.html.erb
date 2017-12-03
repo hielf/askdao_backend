@@ -39,8 +39,11 @@
             $.ajax({
                     type: "delete",
                     url: "/videos/" + id,
-                    dataType: "json",
+                    // dataType: "json",
                     data: {"_method":"delete"},
+                    headers:{
+                        Content-Type: 'application/json'
+                    },
                     complete: function(){
                       $.toast("已删除", 4000);
                     }
