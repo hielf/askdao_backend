@@ -44,7 +44,8 @@
                allVals.push(parseInt($(this).val()));
              });
              if (jQuery.isEmptyObject(allVals)) {
-              $.toast("请选择需要下载的内容", 4000);
+              // $.toast("请选择需要下载的内容", 4000);
+              $.toptip('请选择需要下载的内容', 4000, 'warning');
               return;
              }
             $.ajax
@@ -54,7 +55,8 @@
                 type: 'post',
                 success: function(result)
                 {
-                  $.toast("操作成功", 4000);
+                  // $.toast("操作成功", 4000);
+                  $.toptip('操作成功', 4000, 'success');
                 }
             });
         });
