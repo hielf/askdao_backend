@@ -15,7 +15,7 @@
         <% @videos.each do |v| %>
         <a class="weui-cell" href="<%= v.video_src %>">
           <div class="weui-cell__hd"><img src="<%= v.video_cover %>" width="144"></div>
-          <div class="weui-cell__bd" style="transform: translateX(-136px)">
+          <div class="weui-cell__bd">
             <p style="color:#000000;"><%= v.name %></p>
           </div>
         </a>
