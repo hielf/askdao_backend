@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  resource :videos do
-    collection do
-      post :remove
-    end
-  end
+  resource :videos 
   resource :wechat, only: [:show, :create]  do
     collection do
       get :message_box

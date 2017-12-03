@@ -33,9 +33,19 @@
         <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
         <script src="https://cdn.bootcss.com/jquery-weui/1.1.2/js/jquery-weui.min.js"></script>
         <script>
-        $(document).ready(function() {
-          $('.weui-swiped-btn weui-swiped-btn_warn delete-swipeout').click(function(){
-            alert("ok")
+        $(document).ready(function(event) {
+          $('.weui-swiped-btn.weui-swiped-btn_warn.delete-swipeout').click(function(){
+            id = this.id
+            $.ajax({
+                    type: "POST",
+                    url: "/videos" + id,
+                    dataType: "json",
+                    data: {"_method":"delete"},
+                    complete: function(){
+                      $.toast("已删除", 4000);
+                    }
+                });
+            event.preventDefault();
           });
         })
 
