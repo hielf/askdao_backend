@@ -42,9 +42,9 @@
                     data: JSON.stringify( { video_id: id } ),
                     contentType: "application/json",
                     complete: function(){
+                      $.toptip('已删除', 2000, 'success');
                       $('#cell-' + String(id)).remove();
                       // $.toast("已删除", 4000);
-                      $.toptip('已删除', 4000, 'success');
                     }
                 });
             event.preventDefault();
