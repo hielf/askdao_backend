@@ -30,6 +30,14 @@ class VideosController < ApplicationController
 
   def remove
     video = Video.find_by(id: params[:video_id])
+    key = video.video_src.gsub('http://shadowstatic.easybird.cn/', '')
+    url =  "http://139.162.101.250/api/spyder_videos/remove"
+    res = HTTParty.post(url,
+            :body => { :key => key
+                     }.to_json,
+            :headers => { 'Content-Type' => 'application/json' } )
+
+    data = JSON.parse(res.body)
 
     if video.destroy
       render_json(0, '删除成功')

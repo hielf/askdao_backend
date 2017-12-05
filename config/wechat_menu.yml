@@ -1,0 +1,5 @@
+button:
+ -
+  type: "click"
+  name: "我的闻道"
+  key:  "MY_WENDAO"
