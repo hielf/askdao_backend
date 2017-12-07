@@ -64,7 +64,7 @@ class WechatsController < ActionController::Base
 
   # When user click the menu button
   on :click, with: 'MY_WENDAO' do |request, key|
-    request.reply.text "User: #{request[:FromUserName]} click #{key} #{name}"
+    request.reply.text "User: #{request[:FromUserName]} click #{key}"
   end
 
   # When user view URL in the menu button
