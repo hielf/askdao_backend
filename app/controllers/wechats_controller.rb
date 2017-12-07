@@ -68,7 +68,7 @@ class WechatsController < ActionController::Base
   end
 
   # When user view URL in the menu button
-  on :view, with: 'http://wendao.easybird.cn/results/my_videos?user=og7qVxJAnAyVFXWrODpayy0WqAvY' do |request, view|
+  on :view, with: 'http://wendao.easybird.cn/results/my_videos' do |request, view|
     request.reply.text "#{request[:FromUserName]} view #{view}"
   end
 
