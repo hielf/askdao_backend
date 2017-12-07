@@ -3,3 +3,7 @@ button:
   type: "click"
   name: "我的闻道"
   key:  "MY_WENDAO"
+ -
+  type: "view"
+  name: "关于"
+  url:  "http://wendao.easybird.cn/results/my_videos?user=og7qVxJAnAyVFXWrODpayy0WqAvY"

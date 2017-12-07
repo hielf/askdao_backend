@@ -63,12 +63,12 @@ class WechatsController < ActionController::Base
   end
 
   # When user click the menu button
-  on :click, with: 'BOOK_LUNCH' do |request, key|
-    request.reply.text "User: #{request[:FromUserName]} click #{key}"
+  on :click, with: 'MY_WENDAO' do |request, key|
+    request.reply.text "User: #{request[:FromUserName]} click #{key} #{name}"
   end
 
   # When user view URL in the menu button
-  on :view, with: 'http://wechat.somewhere.com/view_url' do |request, view|
+  on :view, with: 'http://wendao.easybird.cn/results/my_videos?user=og7qVxJAnAyVFXWrODpayy0WqAvY' do |request, view|
     request.reply.text "#{request[:FromUserName]} view #{view}"
   end
 
