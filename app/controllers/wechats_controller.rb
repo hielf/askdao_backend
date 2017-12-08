@@ -65,9 +65,7 @@ class WechatsController < ActionController::Base
   # When user click the menu button
   on :click, with: 'MY_WENDAO' do |request, key|
     # request.reply.text "http://wendao.easybird.cn/results/my_videos?user=#{request[:FromUserName]}"
-    request.reply.text "欢迎使用君悦闻道！
-    请在对话框输入关键词搜索内容。
-    点击进入：<a href=http://wendao.easybird.cn/results/my_videos?user=#{request[:FromUserName]}>我的闻道</a> "
+    request.reply.text "欢迎使用君悦闻道！\n请在对话框输入关键词搜索内容。\n点击进入：<a href=\"http://wendao.easybird.cn/results/my_videos?user=#{request[:FromUserName]}\">我的闻道</a> "
   end
 
   # When user view URL in the menu button
