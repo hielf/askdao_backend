@@ -4,8 +4,6 @@ class ArticlesController < ApplicationController
 
   def create
     requires! :title, type: String
-    requires! :author, type: String
-    requires! :url, type: String
     requires! :status, type: Integer, values: %w(0 1)
     requires! :secret, type: String
     requires! :user, type: String
