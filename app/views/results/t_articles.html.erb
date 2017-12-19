@@ -21,7 +21,10 @@
             <i class="weui-icon-checked"></i>
           </div>
           <div class="weui-cell__bd">
-            <p><%= d["title"] %></p></br>
+            <p style="color:#000000;"><%= d["title"] %></p></br>
+            <% if !d["summary"].blank? %>
+            <p style="color:#818181;font-size: 16px;"><%= d["summary"] %></p></br>
+            <% end %>
             <p style="color:#999999;font-size: 15px;">作者:<%= d["author"] %></p>
           </div>
         </label>

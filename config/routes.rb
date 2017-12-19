@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       get :t_articles
       get :my_videos
       post :submit_download
-      post :article_collect
+      post :submit_article_fav
     end
   end
   resource :wechat_reports do
