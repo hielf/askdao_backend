@@ -20,4 +20,12 @@ class Message < ActiveRecord::Base
             :headers => { 'Content-Type' => 'application/json' } )
   end
 
+  def article_collect(ids)
+    url = "http://139.162.101.250/api/spyders/article_collect"
+    res = HTTParty.post(url,
+            :body => { :ids => ids
+                     }.to_json,
+            :headers => { 'Content-Type' => 'application/json' } )
+  end
+
 end

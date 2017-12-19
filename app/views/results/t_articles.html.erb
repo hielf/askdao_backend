@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+        <title>学术文章搜索结果</title>
+        <!-- 引入 WeUI -->
+        <!-- <link rel="stylesheet" href="path/to/weui/dist/style/weui.min.css"/> -->
+        <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+        <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.1.2/css/jquery-weui.min.css">
+        <style>.weui-footer_fixed-bottom{bottom: 0; border-radius: 0; z-index: 100;} .weui-btn{border-radius:0} #body{margin-bottom: 50px;}</style>
+    </head>
+    <body>
+      <div id="body">
+        <div class="weui-cells__title">关键词: <%= @keyword %></div>
+        <div class="weui-cells weui-cells_checkbox">
+        <% @data.each do |d| %>
+        <label class="weui-cell weui-check__label" for="<%= d["id"] %>">
+          <div class="weui-cell__hd">
+            <input type="checkbox" class="weui-check" name="checkbox1" id="<%= d["id"] %>" value="<%= d["id"] %>">
+            <i class="weui-icon-checked"></i>
+          </div>
+          <div class="weui-cell__bd">
+            <p><%= d["title"] %></p></br>
+            <p style="color:#999999;font-size: 15px;">作者:<%= d["author"] %></p>
+          </div>
+        </label>
+        <% end %>
+        </div>
+        <div class="weui-footer_fixed-bottom">
+          <!-- <p class="weui-footer__text">Copyright © 2011-2018 君悦闻道</p> -->
+          <p class="weui-footer__links">
+            <a href="javascript:void(0);" class="weui-btn weui-btn_primary" id="submit">
+              收藏
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+      <script src="https://cdn.bootcss.com/jquery-weui/1.1.2/js/jquery-weui.min.js"></script>
+      <script>
+      $(document).ready(function() {
+        $('#submit').click(function(){
+        var allVals = [];
+          $('input:checkbox:checked').each(function() {
+               allVals.push(parseInt($(this).val()));
+             });
+             if (jQuery.isEmptyObject(allVals)) {
+              // $.toast("请选择需要下载的内容", 4000);
+              $.toptip('请选择需要收藏的内容', 4000, 'warning');
+              return;
+             }
+            $.ajax
+            ({
+                url: 'http://wendao.easybird.cn/results/submit_article_fav',
+                data: {"ids": allVals},
+                type: 'post',
+                success: function(result)
+                {
+                  // $.toast("操作成功", 4000);
+                  $.toptip('操作成功', 2000, 'success');
+                  setTimeout(
+                    function()
+                    {
+                      $("#body").html('<header style="padding: 35px 0;">' +
+                        '<h1 style="text-align: center;font-size: 34px;color: #3cc51f;font-weight: 400;margin: 0 15%;">君悦闻道提示</h1>' +
+                      '</header>' +
+                      '<div style="padding: 15px;">' +
+                        '<div style="margin-bottom: 25px;display: -webkit-box;display: -webkit-flex;display: flex;-webkit-box-align: center;-webkit-align-items: center;align-items: center">' +
+                          '<i class="weui-icon-success weui-icon_msg" style="margin-right: 18px"></i>' +
+                          '<div style="-webkit-flex-shrink: 100;flex-shrink: 100">' +
+                            '<h3 style="font-weight: 400">学术文章收藏成功</h3>' +
+                            '<p style="margin-top: 6px;font-size: 12px;color: #888">请到我的收藏中查看</p>' +
+                          '</div>' +
+                        '</div>' +
+                      '</div>' +
+                      '<div class="weui-footer_fixed-bottom">' +
+                        '<p class="weui-footer__text">Copyright © 2011-2018 君悦闻道</p>' +
+                      '</div>');
+                    }, 2000);
+                }
+            });
+        });
+      })
+
+      </script>
+    </body>
+</html>

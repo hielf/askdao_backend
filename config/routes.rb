@@ -4,6 +4,11 @@ Rails.application.routes.draw do
       post :remove
     end
   end
+  resource :articles do
+    collection do
+      post :remove
+    end
+  end
   resource :wechat, only: [:show, :create]  do
     collection do
       get :message_box
@@ -14,8 +19,10 @@ Rails.application.routes.draw do
     collection do
       get :videos
       get :articles
+      get :t_articles
       get :my_videos
       post :submit_download
+      post :article_collect
     end
   end
   resource :wechat_reports do
