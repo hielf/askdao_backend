@@ -1,4 +1,5 @@
 class ResultsController < ApplicationController
+  wechat_api
   protect_from_forgery with: :null_session
 
   def videos
@@ -50,6 +51,12 @@ class ResultsController < ApplicationController
   end
 
   def submit_download
+    Rails.logger.warn  "wechat_oauth2 #{wechat_oauth2}"
+    Rails.logger.warn  "wechat_oauth2 snsapi_userinfo #{wechat_oauth2('snsapi_userinfo')}"
+    wechat_oauth2 do |openid|
+      Rails.logger.warn  "wechat_oauth2 start"
+      Rails.logger.warn "***********openid: #{openid}**************"
+    end
     ids = params[:ids].map{|i| i.to_i}
     if (ids && !ids.empty?)
       message = Message.last
