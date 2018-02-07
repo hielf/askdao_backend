@@ -1,4 +1,4 @@
-class ResultsController < ApplicationController
+class ResultsController < ActionController::Base
   wechat_api
   protect_from_forgery with: :null_session
 
