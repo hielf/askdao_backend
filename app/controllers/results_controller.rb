@@ -1,5 +1,4 @@
-class ResultsController < ActionController::Base
-  wechat_api
+class ResultsController < ApplicationController
   protect_from_forgery with: :null_session
 
   def videos
@@ -51,21 +50,15 @@ class ResultsController < ActionController::Base
   end
 
   def submit_download
-    Rails.logger.warn  "wechat_oauth2 #{wechat_oauth2}"
-    Rails.logger.warn  "wechat_oauth2 snsapi_userinfo #{wechat_oauth2('snsapi_userinfo')}"
-    wechat_oauth2 do |openid|
-      Rails.logger.warn  "wechat_oauth2 start"
-      Rails.logger.warn "***********openid: #{openid}**************"
-    end
-    # ids = params[:ids].map{|i| i.to_i}
-    # if (ids && !ids.empty?)
-    #   message = Message.last
-    #   message.delay(:queue => 'sending').video_download(ids)
+    ids = params[:ids].map{|i| i.to_i}
+    if (ids && !ids.empty?)
+      message = Message.last
+      message.delay(:queue => 'sending').video_download(ids)
 
-      # render_json(0, '提交成功')
-    # else
-    #   render_json(1, '提交失败')
-    # end
+      render_json(0, '提交成功')
+    else
+      render_json(1, '提交失败')
+    end
   end
 
   def submit_article_fav
