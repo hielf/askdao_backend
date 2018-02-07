@@ -57,13 +57,15 @@ class ResultsController < ApplicationController
       Rails.logger.warn  "wechat_oauth2 start"
       Rails.logger.warn "***********openid: #{openid}**************"
     end
-    ids = params[:ids].map{|i| i.to_i}
-    if (ids && !ids.empty?)
-      message = Message.last
-      message.delay(:queue => 'sending').video_download(ids)
+    # ids = params[:ids].map{|i| i.to_i}
+    # if (ids && !ids.empty?)
+    #   message = Message.last
+    #   message.delay(:queue => 'sending').video_download(ids)
 
-      render_json(0, '提交成功')
-    end
+      # render_json(0, '提交成功')
+    # else
+    #   render_json(1, '提交失败')
+    # end
   end
 
   def submit_article_fav
