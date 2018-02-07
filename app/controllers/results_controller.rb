@@ -63,8 +63,6 @@ class ResultsController < ApplicationController
       message.delay(:queue => 'sending').video_download(ids)
 
       render_json(0, '提交成功')
-    else
-      render_json(1, '提交失败')
     end
   end
 
